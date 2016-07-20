@@ -1,6 +1,6 @@
 ## SXPanel
 ##
-SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', icon = NULL) {
+SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', collapsible = FALSE, icon = NULL) {
 
   ## add a style
   if (styleclass %in% c('primary', 'info', 'success', 'warning', 'danger', 'inverse', 'link')) {
@@ -29,8 +29,17 @@ SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = '
     }
   }
 
-  pan_header <- shiny::div(class = 'panel-heading clearfix', id = paste0('panelheading_', inputId), heading, style = pan_textsize, pan_icon)
-  pan_body <- shiny::div(class = 'panel-body', id = paste0('panelbody_', inputId), ...)
+  ## collapsible
+  if (collapsible & !is.null(heading)) {
+    pan_heading <- shiny::a(heading, href=paste0('#panelcollapse_', inputId), 'data-toggle'='collapse')
+    pan_body <- shiny::div(class = 'panel-collapse collapse in', id = paste0('panelcollapse_', inputId), shiny::div(class = 'panel-body', id = paste0('panelbody_', inputId), ...))
+  } else {
+    pan_heading <- heading
+    pan_body <- shiny::div(class = 'panel-body', id = paste0('panelbody_', inputId), ...)
+  }
+  pan_header <- shiny::div(class = 'panel-heading clearfix', id = paste0('panelheading_', inputId), pan_heading, style = pan_textsize, pan_icon)
+
+
   sx_panel <- shiny::div(class = pan_class, id = inputId, pan_header, pan_body)
   sx_panel
 }
