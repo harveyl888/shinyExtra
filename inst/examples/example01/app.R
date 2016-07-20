@@ -6,8 +6,10 @@ server <- function(input, output) {
 }
 
 ui <- fluidPage(
+  br(),
   fluidRow(
-    column(4, SXPanel('pan1', header = 'my panel'))
+    column(4, SXPanel('pan1', styleclass = 'success')),
+    column(4, SXPanel('pan1', heading = 'my panel', styleclass = 'danger'))
   )
 )
 
