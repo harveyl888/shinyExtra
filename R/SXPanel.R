@@ -1,6 +1,6 @@
 ## SXPanel
 ##
-SXPanel <- function(inputId, heading = '', text_size = NULL, styleclass = 'default', icon = NULL, ...) {
+SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', icon = NULL) {
 
   ## add a style
   if (styleclass %in% c('primary', 'info', 'success', 'warning', 'danger', 'inverse', 'link')) {
