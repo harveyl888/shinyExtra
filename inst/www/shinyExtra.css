@@ -1,0 +1,8 @@
+/* shinyExtra.css */
+
+.panel-heading span {
+  /* vertically align contents of panel heading by placing in table cell */
+  display: table-cell;
+  vertical-align: middle;
+}
+
