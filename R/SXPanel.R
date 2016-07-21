@@ -31,13 +31,15 @@ SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = '
 
   ## collapsible
   if (collapsible & !is.null(heading)) {
-    pan_heading <- shiny::a(heading, href=paste0('#panelcollapse_', inputId), 'data-toggle'='collapse')
-    pan_body <- shiny::div(class = 'panel-collapse collapse in', id = paste0('panelcollapse_', inputId), shiny::div(class = 'panel-body', id = paste0('panelbody_', inputId), ...))
+    pan_dropdown <- shiny::a(shiny::tags$span(class = 'glyphicon glyphicon-chevron-up', style = 'float:right; padding-right:20px'), href=paste0('#panelcollapse_', inputId), 'data-toggle'='collapse')
+#     pan_heading <- shiny::a(heading, href=paste0('#panelcollapse_', inputId), 'data-toggle'='collapse')
+     pan_body <- shiny::div(class = 'panel-collapse collapse in', id = paste0('panelcollapse_', inputId), shiny::div(class = 'panel-body', id = paste0('panelbody_', inputId), ...))
   } else {
-    pan_heading <- heading
+#    pan_heading <- heading
+    pan_dropdown <- NULL
     pan_body <- shiny::div(class = 'panel-body', id = paste0('panelbody_', inputId), ...)
   }
-  pan_header <- shiny::div(class = 'panel-heading clearfix', id = paste0('panelheading_', inputId), pan_heading, style = pan_textsize, pan_icon)
+  pan_header <- shiny::div(class = 'panel-heading clearfix', id = paste0('panelheading_', inputId), heading, style = pan_textsize, pan_icon, pan_dropdown)
 
 
   sx_panel <- shiny::div(class = pan_class, id = inputId, pan_header, pan_body)
