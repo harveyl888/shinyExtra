@@ -9,7 +9,10 @@ ui <- fluidPage(
   br(),
   fluidRow(
     column(4, SXPanel('pan1', heading = 'Regular header', checkbox = TRUE, styleclass = 'primary', icon = 'record',
-                      h4('here is some text in the body'))),
+                      h4('here is some text in the body'),
+                      SXLabel('lab1', 'This is a label', styleclass = 'success'),
+                      SXLabel('lab1', 'This is a clickable label', styleclass = 'success', link='http://www.google.com')
+    )),
     column(4, SXPanel('pan2', heading = 'Larger header', checkbox = TRUE, text_size = 'large', styleclass = 'success', collapsible = T, icon = 'ok',
                       h3('some text'),
                       actionButton('but1', 'A BUTTON'))),
