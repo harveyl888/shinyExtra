@@ -2,3 +2,4 @@
 
 export(SXLabel)
 export(SXPanel)
+export(SXTextArea)

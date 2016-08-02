@@ -6,3 +6,7 @@
   vertical-align: middle;
 }
 
+.textarea-noresize {
+    resize: none;
+    overflow: auto;
+}
