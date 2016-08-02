@@ -1,5 +1,17 @@
-## SXPanel
-##
+#' SXPanel
+#'
+#' helper function to include panels in shiny apps
+#'
+#' @param inputId The input slot that will be used to access the value.
+#' @param ... Panel contents.
+#' @param heading Panel heading.
+#' @param text_size Size for panel heading (NULL = do not change text size, 'small' = 75\% size, 'large' = 150\% size).
+#' @param styleclass A Bootstrap style to apply to the button. (\code{default, primary, success, info, warning, or danger}).
+#' @param checkbox \bold{logical} - add checkbox to left of panel header.
+#' @param collapsible \bold{logical} - Create a collapsible panel.
+#' @param icon Name of a glyphicon icon to include to the right of panel header.
+#'
+#' @export
 SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', checkbox = FALSE, collapsible = FALSE, icon = NULL) {
 
   ## add a style
