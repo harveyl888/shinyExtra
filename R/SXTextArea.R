@@ -8,7 +8,7 @@
 #' @param placeholder Placeholder text for the textarea.
 #' @param resizable \bold{logical} - Allow textarea to be resized (default = true).
 #' @param rows number of rows (defaults to 5).
-#' @param cols number of columns (defaults to 40px).  100% covers the width of the parent.
+#' @param cols number of columns (defaults to 40px).  100\% covers the width of the parent.
 #'
 #' @export
 SXTextArea <- function(inputId, label = NULL, text = NULL, placeholder = NULL, resizable = TRUE, rows = 5, cols = 40) {
@@ -21,12 +21,12 @@ SXTextArea <- function(inputId, label = NULL, text = NULL, placeholder = NULL, r
 
   textarea_style <- 'max-width: 100%; max-height: 100%'
 
-  sx_textarea <-   tagList(tags$div(tags$strong(label), style="margin-top: 5px;"),
-                           tags$textarea(id = inputId,
-                                         class = textarea_class,
-                                         style = textarea_style,
-                                         placeholder = placeholder,
-                                         rows = rows,
-                                         cols = shiny::validateCssUnit(cols), text))
+  sx_textarea <- shiny::tagList(shiny::tags$div(shiny::tags$strong(label), style="margin-top: 5px;"),
+                                shiny::tags$textarea(id = inputId,
+                                       class = textarea_class,
+                                       style = textarea_style,
+                                       placeholder = placeholder,
+                                       rows = rows,
+                                       cols = shiny::validateCssUnit(cols), text))
   htmltools::attachDependencies(sx_textarea, shinySXDep)
 }

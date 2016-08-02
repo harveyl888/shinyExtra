@@ -20,7 +20,7 @@ SXTextArea(inputId, label = NULL, text = NULL, placeholder = NULL,
 
 \item{rows}{number of rows (defaults to 5).}
 
-\item{cols}{number of columns (defaults to 40px).  100% covers the width of the parent.}
+\item{cols}{number of columns (defaults to 40px).  100\% covers the width of the parent.}
 }
 \description{
 helper function to include textarea in shiny apps
