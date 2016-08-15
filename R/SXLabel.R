@@ -4,7 +4,7 @@
 #'
 #' @param inputId The input slot that will be used to access the value.
 #' @param label The label text.
-#' @param styleclass A Bootstrap style to apply to the button. (\code{default, primary, success, info, warning, or danger}).
+#' @param styleclass A Bootstrap style to apply to the label. (\code{default, primary, success, info, warning, or danger}).
 #' @param link An optional html link associated with the label.
 #'
 #' @export
