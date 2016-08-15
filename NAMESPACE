@@ -2,4 +2,5 @@
 
 export(SXLabel)
 export(SXPanel)
+export(SXSortable)
 export(SXTextArea)

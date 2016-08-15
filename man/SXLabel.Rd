@@ -11,7 +11,7 @@ SXLabel(inputId, label = NULL, styleclass = "default", link = NULL)
 
 \item{label}{The label text.}
 
-\item{styleclass}{A Bootstrap style to apply to the button. (\code{default, primary, success, info, warning, or danger}).}
+\item{styleclass}{A Bootstrap style to apply to the label. (\code{default, primary, success, info, warning, or danger}).}
 
 \item{link}{An optional html link associated with the label.}
 }

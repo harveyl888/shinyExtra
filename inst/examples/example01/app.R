@@ -3,7 +3,8 @@ library(shinyExtra)
 
 server <- function(input, output) {
 
-#  output$txt1_out <- renderText({input$txt1})
+  output$txt1 <- renderPrint({input$sort1_val})
+
 
 }
 
@@ -19,9 +20,11 @@ ui <- fluidPage(
                       h3('some text'),
                       SXTextArea('txt1', 'Text Area Input', placeholder = 'enter some text', resizable = FALSE),
                       actionButton('but1', 'A BUTTON'))),
-    column(4, SXPanel('pan3', collapsible = T, checkbox = T, heading = 'This is a very long header which will take up quite a bit of room, maybe too much!', text_size = 'small', styleclass = 'danger', icon = 'ok'))
-  )
-#  verbatimTextOutput('txt1_out')
+    column(4, SXPanel('pan3', collapsible = T, checkbox = T, heading = 'This is a very long header which will take up quite a bit of room, maybe too much!', text_size = 'small', styleclass = 'danger', icon = 'ok',
+                      SXSortable('sort1', labels = list('label1', 'label2', 'label3'), styleclass = 'success')
+                      ))
+  ),
+  verbatimTextOutput('txt1')
 )
 
 shinyApp(server = server, ui = ui)

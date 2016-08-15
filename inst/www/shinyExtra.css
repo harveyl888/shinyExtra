@@ -7,6 +7,11 @@
 }
 
 .textarea-noresize {
-    resize: none;
-    overflow: auto;
+  resize: none;
+  overflow: auto;
+}
+
+.sort_label {
+  position: relative;
+  display: block;
 }
