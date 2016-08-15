@@ -24,4 +24,9 @@ Add a label with an optional hyperlink.
 SXTextArea(inputId, label = NULL, text = NULL, placeholder = NULL, resizable = TRUE, rows = 5, cols = 40)
 ```
 Add a multiline input, default size = 5 rows, 40px wide.  If cols = '100%' then the input will expand to its parent's width.
+#### SXSortable
+``` r
+SXSortable(inputId, labels=NULL, styleclass = 'default')
+```
+Add a sortable list of labels based using jquery-ui sortable.  The sorted list is output as a vector to a shiny variable `inputId_val`.  This function is still classed as *experimental*.
 
