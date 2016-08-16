@@ -21,7 +21,7 @@ ui <- fluidPage(
                       SXTextArea('txt1', 'Text Area Input', placeholder = 'enter some text', resizable = FALSE),
                       actionButton('but1', 'A BUTTON'))),
     column(4, SXPanel('pan3', collapsible = T, checkbox = T, heading = 'This is a very long header which will take up quite a bit of room, maybe too much!', text_size = 'small', styleclass = 'danger', icon = 'ok',
-                      SXSortable('sort1', labels = list(list('label1', 'label2', 'label3'), list('label4', 'label5', 'label6'), list('X1', 'X2', 'X3', 'X4')), styleclass = list('success', 'primary', 'warning'))
+                      SXSortable('sort1', labels = list(list('label1', 'label2', 'label3'), list('label4', 'label5', 'label6'), list('X1', 'X2', 'X3', 'X4')), styleclass = list('success', 'primary', 'warning'), height = 100)
                       ))
   ),
   verbatimTextOutput('txt1')

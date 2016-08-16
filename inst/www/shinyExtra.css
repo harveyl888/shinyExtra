@@ -14,4 +14,13 @@
 .sort_label {
   position: relative;
   display: block;
+  padding: 1px 2px 1px 1px;
+}
+
+.sortGroup {
+  border: 2px solid green ;
+  margin: 1px 4px 1px 4px;
+  width: 100px;
+  height: 120px;
+  overflow: auto;
 }
