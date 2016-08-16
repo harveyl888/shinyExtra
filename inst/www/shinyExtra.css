@@ -20,7 +20,27 @@
 .sortGroup {
   border: 2px solid green ;
   margin: 1px 4px 1px 4px;
-  width: 100px;
-  height: 120px;
   overflow: auto;
 }
+
+.overflowText {
+  width: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.overflowText:hover {
+  overflow: visible;
+  position: relative;
+}
+
+.overflowText:hover span {
+  color: white;
+  background-color: black;
+  padding: 1px 5px 1px 5px;
+  border-radius: 4px;
+  overflow: visible;
+  display: inline-block;
+}
+

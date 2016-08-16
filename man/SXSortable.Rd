@@ -4,14 +4,21 @@
 \alias{SXSortable}
 \title{SXSortable}
 \usage{
-SXSortable(inputId, labels = NULL, styleclass = "default")
+SXSortable(inputId, labels = NULL, styleclass = NULL, headers = NULL,
+  height = NULL, width = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the data.}
 
-\item{labels}{A list of labels.}
+\item{labels}{A list of lists of labels.}
 
-\item{styleclass}{A Bootstrap style to apply to the list. (\code{default, primary, success, info, warning, or danger}).}
+\item{styleclass}{A list of Bootstrap styles to apply to the list. (\code{default, primary, success, info, warning, or danger}).}
+
+\item{headers}{A list of column headers.}
+
+\item{height}{A value for the height (default = 120 px)}
+
+\item{width}{A value for the width (default = maximum label width + 40 px)}
 }
 \description{
 add a set of labels and make them sortable
