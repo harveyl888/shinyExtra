@@ -15,12 +15,12 @@ SXSortable <- function(inputId, labels = NULL, styleclass = NULL, headers = NULL
 
   styleclass <- as.list(styleclass)
   if (length(styleclass) < length(labels)) {
-    styleclass <- c(styleclass, rep(length(labels) - length(styleclass), 'default'))
+    styleclass <- c(styleclass, rep('default', length(labels) - length(styleclass)))
   }
 
   headers <- as.list(headers)
   if (length(headers) < length(labels)) {
-    headers <- c(headers, rep(length(labels) - length(headers), 'no title'))
+    headers <- c(headers, rep('no title', length(labels) - length(headers)))
   }
 
   if (is.null(height)) {
