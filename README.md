@@ -26,7 +26,15 @@ SXTextArea(inputId, label = NULL, text = NULL, placeholder = NULL, resizable = T
 Add a multiline input, default size = 5 rows, 40px wide.  If cols = '100%' then the input will expand to its parent's width.
 #### SXSortable
 ``` r
-SXSortable(inputId, labels=NULL, styleclass = 'default')
+SXSortable(inputId, labels = NULL, styleclass = NULL, width = NULL, height = '120px')
 ```
-Add a sortable list of labels based using jquery-ui sortable.  The sorted list is output as a vector to a shiny variable `inputId_val`.  This function is still classed as *experimental*.
+Add multiple sortable lists of labels based using jquery-ui sortable.  Labels can be moved between lists and the contents of each list can be returned as shiny variables (`inputId_val_n`) where *n* is the list number.
+Data are input as a list of lists, along with a list of styleclasses for example:
+```r
+SXSortable('sort1', labels = list(list("label 1", "label 2", "label 3"), list("label 4", "label 5")), styleclass = list("success", "primary"), height = 100)
+```
+would generate the following output:  
+![](./images/SXSortable_image_01.png)  
+and the shiny variables `input$sort1_val_1` and `input$sort1_val_2` would contain the values of the two boxes.  
+This function is still being worked on and is still somewhat *experimental*.
 
