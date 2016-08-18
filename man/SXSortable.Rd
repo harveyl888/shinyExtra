@@ -5,7 +5,7 @@
 \title{SXSortable}
 \usage{
 SXSortable(inputId, labels = NULL, styleclass = NULL, headers = NULL,
-  height = NULL, width = NULL)
+  colorByGroup = TRUE, height = NULL, width = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the data.}
@@ -15,6 +15,8 @@ SXSortable(inputId, labels = NULL, styleclass = NULL, headers = NULL,
 \item{styleclass}{A list of Bootstrap styles to apply to the list. (\code{default, primary, success, info, warning, or danger}).}
 
 \item{headers}{A list of column headers.}
+
+\item{colorByGroup}{Logical If true then labels will be recolored when moved.  If false then labels will retain their color when moved}
 
 \item{height}{A value for the height (default = 120 px)}
 

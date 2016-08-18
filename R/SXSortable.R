@@ -6,11 +6,12 @@
 #' @param labels A list of lists of labels.
 #' @param styleclass A list of Bootstrap styles to apply to the list. (\code{default, primary, success, info, warning, or danger}).
 #' @param headers A list of column headers.
+#' @param colorByGroup Logical If true then labels will be recolored when moved.  If false then labels will retain their color when moved
 #' @param height A value for the height (default = 120 px)
 #' @param width A value for the width (default = maximum label width + 40 px)
 #'
 #' @export
-SXSortable <- function(inputId, labels = NULL, styleclass = NULL, headers = NULL, height = NULL, width = NULL) {
+SXSortable <- function(inputId, labels = NULL, styleclass = NULL, headers = NULL, colorByGroup = TRUE, height = NULL, width = NULL) {
   if (is.null(labels)) return()
 
   styleclass <- as.list(styleclass)
@@ -85,6 +86,15 @@ SXSortable <- function(inputId, labels = NULL, styleclass = NULL, headers = NULL
           })
           Shiny.onInputChange(\"', inputId, '_val_\" + counter, output);
         });
+      },
+      receive: function(event, ui) {
+        var colorByGroup = ', ifelse(colorByGroup, "true", "false"), ';
+        var styleClass = [', paste0("\"", styleclass, "\"", collapse = ", "), '];
+        if(colorByGroup) {
+          var parentid = ui.item.parent().prop("id");
+          var parentref = parseInt(parentid.substring(parentid.indexOf("_") + 1, parentid.lastIndexOf("_")));
+          ui.item.find(".label").removeClass().addClass("label label-" + styleClass[parentref - 1]);
+        }
       }
     })
   ')
