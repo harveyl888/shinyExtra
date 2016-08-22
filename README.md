@@ -29,7 +29,8 @@ Add a multiline input, default size = 5 rows, 40px wide.  If cols = '100%' then 
 SXSortable(inputId, labels = NULL, styleclass = NULL, headers = NULL, colorByGroup = TRUE, width = NULL, height = '120px')
 ```
 Add multiple sortable lists of labels based using jquery-ui sortable.  Labels can be moved between lists and the contents of each list can be returned as shiny variables (`inputId_val_n`) where *n* is the list number.
-Data are input as a list of lists, along with lists of styleclasses and headers for example:
+Data are input as a list of lists, along with lists of styleclasses and headers.  If colorByGroup is set to true then colors will be linked to columns and labels will change to the color associated with a column when moved, otherwise labels will keep their initial color upon moving.  
+for example:
 ```r
 SXSortable('sort1', labels = list(list("label 1", "label 2", "label 3"), list("label 4", "label 5")), styleclass = list("success", "primary"), headers=list("title 1", "title 2"), height = 100)
 ```
