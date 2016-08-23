@@ -12,6 +12,18 @@ $(document)
     $span.find('.icon-collapse').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
   });
 
+  // function to initialze all sortable lists using data-value attribute
+
+  Shiny.addCustomMessageHandler("initSort",
+        function(dummy) {
+          var sortOuter = $(".sortGroupOuter");
+          sortOuter.each(function(x) {
+            var initData = $(this).data("value");
+            var outerid = $(this).prop("id");
+            var shinyid = outerid.substring(0, outerid.indexOf("_")) + "_val" + outerid.substring(outerid.indexOf("_"));
+            Shiny.onInputChange(shinyid, initData);
+          });
+        });
 
 
 /*! jQuery UI - v1.12.0 - 2016-08-15

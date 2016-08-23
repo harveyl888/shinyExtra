@@ -37,7 +37,7 @@ SXSortable <- function(inputId, labels = NULL, styleclass = NULL, headers = NULL
     for (j in 1:length(labels[[i]])) {
       l1[[j]] <- shiny::tags$span(SXLabel(paste0(inputId, '_label_', i, '_', j), label = labels[[i]][[j]], styleclass = styleclass[[i]]), class = 'sort_label')
     }
-    l.labels[[i]] <- shiny::div(id = paste0(inputId, '_', i), class = 'sortGroupOuter', style = 'display:inline-block; vertical-align:top;',
+    l.labels[[i]] <- shiny::div(id = paste0(inputId, '_', i), class = 'sortGroupOuter', 'data-value' = jsonlite::toJSON(labels[[i]]), style = 'display:inline-block; vertical-align:top;',
                                 shiny::div(id = paste0(inputId, '_', i, '_title'), shiny::span(headers[[i]]), class = 'overflowText'),
       shiny::div(
         id = paste0(inputId, '_', i, '_labels'), class = paste0('connectedSortable_', inputId, ' sortGroup'), shiny::tagList(l1), style = boxstyle
