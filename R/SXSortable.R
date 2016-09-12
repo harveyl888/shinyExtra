@@ -102,7 +102,8 @@ SXSortable <- function(inputId, labels = NULL, styleclass = NULL, headers = NULL
         var styleClass = [', paste0("\"", styleclass, "\"", collapse = ", "), '];
         if(colorByGroup) {
           var parentid = ui.item.parent().prop("id");
-          var parentref = parseInt(parentid.substring(parentid.indexOf("_") + 1, parentid.lastIndexOf("_")));
+          var splitname = parentid.split("_");
+          var parentref = parseInt(splitname[splitname.length - 2]);
           ui.item.find(".label").removeClass().addClass("label label-" + styleClass[parentref - 1]);
         }
       }

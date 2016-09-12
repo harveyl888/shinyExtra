@@ -20,7 +20,7 @@ $(document)
           sortOuter.each(function(x) {
             var initData = $(this).data("value");
             var outerid = $(this).prop("id");
-            var shinyid = outerid.substring(0, outerid.indexOf("_")) + "_val" + outerid.substring(outerid.indexOf("_"));
+            var shinyid = outerid.substring(0, outerid.lastIndexOf("_")) + "_val" + outerid.substring(outerid.lastIndexOf("_"));
             Shiny.onInputChange(shinyid, initData);
           });
         });
