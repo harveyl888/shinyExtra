@@ -11,9 +11,9 @@ devtools::install_github("harveyl888/shinyExtra")
 ## Usage
 #### SXPanel
 ``` r
-SXPanel(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', checkbox = FALSE, collapsible = FALSE, icon = NULL)
+SXPanel(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', checkbox = FALSE, collapsible = FALSE, removeButton = FALSE, icon = NULL)
 ```
-Add a bootstrap panel to a shiny app.  The panel can be collapsible and display an glyphicon icon to the right of the panel header.  It may also have a checkbox, displayed to the left of the panel header, which is exposed as inputId_check.
+Add a bootstrap panel to a shiny app.  The panel can be collapsible, display an glyphicon icon and include a button to deletet the panel (all displayed on the right of the panel header).  It may also have a checkbox, displayed to the left of the panel header, which is exposed as inputId_check.
 #### SXlabel
 ``` r
 SXLabel(inputId, label=NULL, styleclass = 'default', link = NULL)
