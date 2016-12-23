@@ -6,7 +6,7 @@
 \usage{
 SXPanel(inputId, ..., heading = "", text_size = NULL,
   styleclass = "default", checkbox = FALSE, collapsible = FALSE,
-  icon = NULL)
+  removeButton = FALSE, icon = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
@@ -22,6 +22,8 @@ SXPanel(inputId, ..., heading = "", text_size = NULL,
 \item{checkbox}{\bold{logical} - add checkbox to left of panel header.}
 
 \item{collapsible}{\bold{logical} - Create a collapsible panel.}
+
+\item{removeButton}{\bold{logical} - Include a button to remove the panel.}
 
 \item{icon}{Name of a glyphicon icon to include to the right of panel header.}
 }

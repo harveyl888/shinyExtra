@@ -9,10 +9,11 @@
 #' @param styleclass A Bootstrap style to apply to the button. (\code{default, primary, success, info, warning, or danger}).
 #' @param checkbox \bold{logical} - add checkbox to left of panel header.
 #' @param collapsible \bold{logical} - Create a collapsible panel.
+#' @param removeButton \bold{logical} - Include a button to remove the panel.
 #' @param icon Name of a glyphicon icon to include to the right of panel header.
 #'
 #' @export
-SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', checkbox = FALSE, collapsible = FALSE, icon = NULL) {
+SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = 'default', checkbox = FALSE, collapsible = FALSE, removeButton = FALSE, icon = NULL) {
 
   ## add a style
   if (styleclass %in% c('primary', 'info', 'success', 'warning', 'danger', 'inverse', 'link')) {
@@ -23,7 +24,7 @@ SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = '
 
   ## add an icon
   if (!is.null(icon)) {
-    pan_icon <- shiny::tags$span(class = paste0('glyphicon glyphicon-', icon), style = 'padding-right:20px')
+    pan_icon <- shiny::tags$span(class = paste0('glyphicon glyphicon-', icon), style = 'padding-right:10px; padding-left:10px;')
   } else {
     pan_icon <- NULL
   }
@@ -52,19 +53,37 @@ SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = '
     pan_check <- NULL
   }
 
+  ## remove button
+  if (removeButton) {
+    pan_remove <- shiny::tags$span(class = 'glyphicon glyphicon-remove-circle',
+                                   style = 'color:red;',
+                                   onclick = paste0("
+                                     Shiny.unbindAll();
+                                     $(\"#", inputId, "\").remove();
+                                     Shiny.bindAll();
+                                   "))
+  } else {
+    pan_remove <- NULL
+  }
+
   ## collapsible
   if (collapsible & !is.null(heading)) {
     pan_header <- shiny::div(class = 'panel-heading clearfix',
                              shiny::p(class = 'panel-title', style = pan_textsize, pan_check, heading,
                              shiny::span(class = 'pull-right',
                                          shiny::span(pan_icon),
-                                         shiny::span(class = 'clickable', shiny::icon('chevron-up', lib='glyphicon', class = 'icon-collapse')))))
+                                         shiny::span(class = 'clickable', shiny::icon('chevron-up', lib='glyphicon', class = 'icon-collapse'), style =  'padding-right:10px; padding-left:10px;'),
+                                         shiny::span(pan_remove)
+                             )))
     pan_body <- shiny::div(class = 'panel-collapse collapse in',
                            shiny::div(class = 'panel-body', ...))
   } else {
     pan_header <- shiny::div(class = 'panel-heading clearfix',
                              shiny::p(class = 'panel-title', style = pan_textsize, pan_check, heading,
-                                      shiny::span(class = 'pull-right', shiny::span(pan_icon))))
+                                      shiny::span(class = 'pull-right',
+                                                  shiny::span(pan_icon),
+                                                  shiny::span(pan_remove))
+                                      ))
     pan_body <- shiny::div(class = 'panel-body', ...)
   }
 
