@@ -71,18 +71,18 @@ SXPanel <- function(inputId, ..., heading = '', text_size = NULL, styleclass = '
     pan_header <- shiny::div(class = 'panel-heading clearfix',
                              shiny::p(class = 'panel-title', style = pan_textsize, pan_check, heading,
                              shiny::span(class = 'pull-right',
-                                         shiny::span(pan_icon),
-                                         shiny::span(class = 'clickable', shiny::icon('chevron-up', lib='glyphicon', class = 'icon-collapse'), style =  'padding-right:10px; padding-left:10px;'),
-                                         shiny::span(pan_remove)
-                             )))
+                                         pan_icon,
+                                         shiny::span(class = 'clickable icon-collapse', shiny::icon('chevron-up', lib='glyphicon'), style =  'padding-right:10px; padding-left:10px;'),
+                                         pan_remove)
+                             ))
     pan_body <- shiny::div(class = 'panel-collapse collapse in',
                            shiny::div(class = 'panel-body', ...))
   } else {
     pan_header <- shiny::div(class = 'panel-heading clearfix',
                              shiny::p(class = 'panel-title', style = pan_textsize, pan_check, heading,
                                       shiny::span(class = 'pull-right',
-                                                  shiny::span(pan_icon),
-                                                  shiny::span(pan_remove))
+                                                  pan_icon,
+                                                  pan_remove)
                                       ))
     pan_body <- shiny::div(class = 'panel-body', ...)
   }
